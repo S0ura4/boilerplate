@@ -4,7 +4,7 @@ import { CoreApiResponse } from 'src/application/api/core-api-response';
 import { User } from 'src/application/decorators/investor.decorator';
 import { Public } from 'src/application/decorators/public.decorator';
 import { AppClsStore, IInvestorClsData } from 'src/common/interface/app-cls-store.interface';
-import { UserDto } from 'src/core/dtos/request/ipo-investor.dto';
+import { UserDto } from 'src/core/dtos/request/user.dto';
 
 import { SigninDto, SigninWithGoogleDto } from 'src/core/dtos/request/signin.dto';
 import { UserAuthUseCaseService } from 'src/use-cases/admin-use-cases/ipo-investors-use-cases/ipo-investor/ipo-investor-auth-use-case.service';

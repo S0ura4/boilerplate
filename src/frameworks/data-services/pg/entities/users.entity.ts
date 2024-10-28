@@ -1,8 +1,8 @@
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from './base.entity';
 
-@Entity('ipo_investors')
-export class IpoInvestorsEntity extends BaseEntity {
+@Entity('users')
+export class UsersEntity extends BaseEntity {
   @Column({
     name: 'full_name',
   })

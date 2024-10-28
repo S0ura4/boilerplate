@@ -30,7 +30,7 @@ export class UpdateUserDto {
   avatar: string;
 }
 
-export class UpdateInvestorPasswordDto {
+export class UpdateUserPasswordDto {
   @IsNotEmpty()
   id: number;
   @IsString()

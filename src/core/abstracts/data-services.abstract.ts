@@ -1,12 +1,12 @@
 import { AdminModel } from '../models';
 import { FileModel } from '../models/file.model';
-import { UserModel } from '../models/ipo-investor.model';
+import { UserModel } from '../models/user.model';
 import { IGenericRepository } from './generic-repository.abstract';
 import { IAdminRepository } from './repositories/admin.abstract';
-import { IIpoInvestorRepository } from './repositories/ipo-investor.abstract';
+import { IUserRepository } from './repositories/user.abstract';
 
 export abstract class IDataServices {
   abstract admin: IAdminRepository<AdminModel>;
-  abstract user: IIpoInvestorRepository<UserModel>;
+  abstract user: IUserRepository<UserModel>;
   abstract file: IGenericRepository<FileModel>;
 }

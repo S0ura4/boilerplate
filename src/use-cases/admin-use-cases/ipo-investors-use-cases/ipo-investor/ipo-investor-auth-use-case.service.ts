@@ -4,7 +4,7 @@ import { IDataServices } from 'src/core/abstracts';
 import { IBcryptService } from 'src/core/abstracts/adapters/bcrypt.abstract';
 import { IJwtService } from 'src/core/abstracts/adapters/jwt.interface';
 import { SigninDto, SigninWithGoogleDto } from 'src/core/dtos/request/signin.dto';
-import { UserModel } from 'src/core/models/ipo-investor.model';
+import { UserModel } from 'src/core/models/user.model';
 import { UserSignInResponseType } from 'src/use-cases/admin-use-cases/admin-user/types/user-signin-response';
 @Injectable()
 export class UserAuthUseCaseService {

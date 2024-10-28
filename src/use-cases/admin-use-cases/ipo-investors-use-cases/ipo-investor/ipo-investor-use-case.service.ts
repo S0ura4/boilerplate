@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import AppException from 'src/application/exception/app.exception';
 import { IDataServices } from 'src/core/abstracts';
 import { IBcryptService } from 'src/core/abstracts/adapters/bcrypt.abstract';
-import { UserDto, UpdateUserDto, UpdateInvestorPasswordDto } from 'src/core/dtos/request/ipo-investor.dto';
-import { UserModel } from 'src/core/models/ipo-investor.model';
+import { UserDto, UpdateUserDto, UpdateUserPasswordDto } from 'src/core/dtos/request/user.dto';
+import { UserModel } from 'src/core/models/user.model';
 import { UserFactoryService } from './ipo-investor-factory.service';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class IpoInvestorUseCaseService {
     return await this.dataServices.user.update({ id: dto.id }, newInvestor);
   }
 
-  async updateInvestorPassword(dto: UpdateInvestorPasswordDto): Promise<UserModel> {
+  async updateInvestorPassword(dto: UpdateUserPasswordDto): Promise<UserModel> {
     const investor = await this.dataServices.user.getOne({ id: +dto.id });
     if (!investor) {
       throw new Error('Investor not found');

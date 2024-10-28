@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UserDto, UpdateUserDto, UpdateInvestorPasswordDto } from 'src/core/dtos/request/ipo-investor.dto';
-import { UserModel } from 'src/core/models/ipo-investor.model';
+import { UserDto, UpdateUserDto, UpdateUserPasswordDto } from 'src/core/dtos/request/user.dto';
+import { UserModel } from 'src/core/models/user.model';
 
 @Injectable()
 export class UserFactoryService {
@@ -19,7 +19,7 @@ export class UserFactoryService {
     return newUser;
   }
 
-  updateInvestorPassword(updateAdminPasswordDto: UpdateInvestorPasswordDto) {
+  updateInvestorPassword(updateAdminPasswordDto: UpdateUserPasswordDto) {
     const newUser = new UserModel();
     newUser.password = updateAdminPasswordDto.newPassword;
     return newUser;

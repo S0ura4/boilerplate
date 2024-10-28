@@ -2,7 +2,7 @@ import InjectableString from 'src/common/injectable.string';
 import { DataSource } from 'typeorm';
 import { AdminEntity } from '../entities';
 import { FileEntity } from '../entities/file.entity';
-import { IpoInvestorsEntity } from '../entities/ipo-investor.entity';
+import { UsersEntity } from '../entities/users.entity';
 import { appDataSourceProviders } from './appDatabase.provider';
 
 const providers = [
@@ -15,13 +15,13 @@ const providers = [
     inject: [InjectableString.APP_DATA_SOURCE],
   },
   {
-    provide: IpoInvestorsEntity.REPOSITORY,
+    provide: UsersEntity.REPOSITORY,
     useFactory: (dataSource: DataSource) => {
-      return dataSource.getRepository(IpoInvestorsEntity);
+      return dataSource.getRepository(UsersEntity);
     },
     inject: [InjectableString.APP_DATA_SOURCE],
   },
- 
+
   {
     provide: FileEntity.REPOSITORY,
     useFactory: (dataSource: DataSource) => {

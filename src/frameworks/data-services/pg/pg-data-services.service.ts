@@ -4,30 +4,30 @@ import { AppClsStore } from 'src/common/interface/app-cls-store.interface';
 import { IDataServices } from 'src/core/abstracts';
 import { IClsStore } from 'src/core/abstracts/adapters/cls-store.abstract';
 import { IAdminRepository } from 'src/core/abstracts/repositories/admin.abstract';
-import { IIpoInvestorRepository } from 'src/core/abstracts/repositories/ipo-investor.abstract';
+import { IUserRepository } from 'src/core/abstracts/repositories/user.abstract';
 import { AdminModel } from 'src/core/models';
 import { FileModel } from 'src/core/models/file.model';
-import { UserModel } from 'src/core/models/ipo-investor.model';
+import { UserModel } from 'src/core/models/user.model';
 import { DataSource, Repository } from 'typeorm';
 import { AdminEntity } from './entities';
 import { FileEntity } from './entities/file.entity';
-import { IpoInvestorsEntity } from './entities/ipo-investor.entity';
+import { UsersEntity } from './entities/users.entity';
 import { PgGenericRepository } from './pg-generic-repository';
 import { PgAdminRepository } from './repositories/admin.repository';
-import { PgIpoInvestorRepository } from './repositories/ipo-investor.repository';
+import { PgIUserRepository } from './repositories/user.repository';
 
 @Injectable()
 export class PgDataServices implements IDataServices, OnApplicationBootstrap {
   admin: IAdminRepository<AdminModel>;
-  user: IIpoInvestorRepository<UserModel>;
+  user: IUserRepository<UserModel>;
   file: PgGenericRepository<FileModel>;
 
   constructor(
     @Inject(AdminEntity.REPOSITORY)
     private adminRepository: Repository<AdminEntity>,
 
-    @Inject(IpoInvestorsEntity.REPOSITORY)
-    private ipoInvestorRepository: Repository<IpoInvestorsEntity>,
+    @Inject(UsersEntity.REPOSITORY)
+    private userRepository: Repository<UsersEntity>,
 
     @Inject(FileEntity.REPOSITORY)
     private fileRepository: Repository<FileEntity>,
@@ -42,7 +42,7 @@ export class PgDataServices implements IDataServices, OnApplicationBootstrap {
     // admin
     this.admin = new PgAdminRepository(this.cls, this.adminRepository);
     // user
-    this.user = new PgIpoInvestorRepository(this.cls, this.ipoInvestorRepository);
+    this.user = new PgIUserRepository(this.cls, this.userRepository);
     // file
     this.file = new PgGenericRepository(this.cls, this.fileRepository);
   }
